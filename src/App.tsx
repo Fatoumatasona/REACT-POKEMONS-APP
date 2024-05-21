@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
 import Pokemon from "./models/pokemon";
 import POKEMONS from "./models/mock-pokemon";
 
@@ -14,13 +14,12 @@ import POKEMONS from "./models/mock-pokemon";
 //};
 
 const App: FunctionComponent = () => {
-  //const name: String = "React";
-  const [pokemons] = useState<Pokemon[]>(POKEMONS);
-  // code détaillé
-  // var nameStateVariable = useState('React');
-  //var name = nameStateVariable[0];
-  //var setName = nameStateVariable[1];
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
+  // Hook effect
+  useEffect(() => {
+    setPokemons(POKEMONS); // 2 arguments  méthode du hook etat avec la liste POKEMONS et tableau vide
+  }, []); // qui permet d'éviter déclencher le hook deffect  à chaque modif du composant
   return (
     <div>
       <h1>Pokédex</h1>
