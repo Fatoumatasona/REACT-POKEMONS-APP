@@ -13,6 +13,16 @@ import POKEMONS from "./models/mock-pokemon";
 //return <h1>Bonjour, {name} !</h1>;
 //};
 
+//const App: FunctionComponent = () => {
+//const [pokemons] = useState<Pokemon[]>(POKEMONS);
+//return (
+//<div>
+//<h1>Pokédex</h1>
+//<p>Il y a {pokemons.length} pokémons dans le Pokédex.</p>
+// </div>
+// );
+//};
+
 const App: FunctionComponent = () => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
