@@ -1,6 +1,8 @@
 import React, { FunctionComponent, useState } from "react";
 import Pokemon from "../models/pokemon";
 import "./pokemon-card.css";
+import formatDate from "../helpers/format-date";
+import formatType from "../helpers/format-type";
 
 type Props = {
   pokemon: Pokemon;
@@ -19,11 +21,6 @@ const PokemonCard: FunctionComponent<Props> = ({
 
   const hideBorder = () => {
     setColor("#f5f5f5"); // on remet la bordure en gris.
-  };
-
-  //methode formatDate pour afficher la date à l'utilisateur
-  const formatDate = (date: Date): string => {
-    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   };
 
   // le return permet d'afficher l'ensemble des propriétés
@@ -45,7 +42,9 @@ const PokemonCard: FunctionComponent<Props> = ({
               <small>{formatDate(pokemon.created)}</small>
             </p>
             {pokemon.types.map((type) => (
-              <span key={type}>{type}</span>
+              <span key={type} className={formatType(type)}>
+                {type}
+              </span>
             ))}
           </div>
         </div>
