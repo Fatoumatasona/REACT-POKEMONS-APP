@@ -21,6 +21,11 @@ const PokemonCard: FunctionComponent<Props> = ({
     setColor("#f5f5f5"); // on remet la bordure en gris.
   };
 
+  //methode formatDate
+  const formatDate = (date: Date): string => {
+    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+  };
+
   return (
     <div
       className='col s6 m4'
@@ -35,8 +40,11 @@ const PokemonCard: FunctionComponent<Props> = ({
           <div className='card-content'>
             <p>{pokemon.name}</p>
             <p>
-              <small>{pokemon.created.toString()}</small>
+              <small>{formatDate(pokemon.created)}</small>
             </p>
+            {pokemon.types.map((type) => (
+              <span key={type}>{type}</span>
+            ))}
           </div>
         </div>
       </div>
