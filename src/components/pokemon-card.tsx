@@ -21,11 +21,13 @@ const PokemonCard: FunctionComponent<Props> = ({
     setColor("#f5f5f5"); // on remet la bordure en gris.
   };
 
-  //methode formatDate
+  //methode formatDate pour afficher la date à l'utilisateur
   const formatDate = (date: Date): string => {
     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
   };
 
+  // le return permet d'afficher l'ensemble des propriétés
+  // modifiées dans le DOM virtuel
   return (
     <div
       className='col s6 m4'
